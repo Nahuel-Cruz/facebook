@@ -48,28 +48,22 @@ public class HomeActivity extends AppCompatActivity {
         // this part is optional
         shareDialog.registerCallback(callbackManager, new FacebookCallback<Sharer.Result>() {
 
-
-
             @Override
             public void onSuccess(Sharer.Result result) {
                 //MessageDialog.show(HomeActivity.this, content);
                 Toast.makeText(HomeActivity.this, "jaló", Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onError(@NonNull FacebookException e) {
                 Toast.makeText(HomeActivity.this, e.getMessage(), Toast.LENGTH_SHORT).show();
             }
-
             @Override
             public void onCancel() {
                 Toast.makeText(HomeActivity.this, "cancelado", Toast.LENGTH_SHORT).show();
             }
         });
-
         ShareLinkContent linkContent = new ShareLinkContent.Builder()
                 .build();
-
         ShareButton btn = (ShareButton) findViewById(R.id.btnShare);
         btn.setShareContent(linkContent);
 
